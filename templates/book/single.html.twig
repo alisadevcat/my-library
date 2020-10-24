@@ -1,0 +1,21 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать страницу{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+<form action ="{{ path('book_update') }}" method="post" class="editForm">
+
+<input type="text"name="id" value="{{book.id}}">
+<input type="text"name="title" value="{{book.title}}">
+<input type="text" name="year"value="{{book.year}}" >
+<input type="text" name="author"value="{{book.author}}" >
+
+<input type="submit" value="Сохранить" class="btn_save">
+<div class="messages"></div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список книг{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h2>Список книг!</h2>
+    <table class="bordered">
+    <tr>
+    <th class="bordered">N</th>
+    <th class="bordered">Название</th>
+    <th class="bordered">Автор</th>
+    <th class="bordered">Год</th>
+    <th class="bordered">Редактировать</th>
+    <th class="bordered">Удалить</th>
+    </tr>
+
+    {% for book in books %}
+      <tr>
+       <td class="bordered">{{ book.id }}</td>
+      <td class="bordered">{{ book.title }}</td>
+     <td class="bordered" >{{ book.author }}</td>
+    <td class="bordered">{{ book.year }}</td>
+
+    <td class="bordered">
+     <a href="{{ path('book_edit', {id: book.id}) }}">Редактировать</a>
+     </td>
+     <td class="bordered">
+     <a href="{{ path('book_delete', {id: book.id}) }}">Удалить</a>
+     </td>
+     </tr>
+
+     {% endfor %}
+
+    </table>
+     <a href="{{ path('book_add')}}">Добавить</a>
+</div>
+
+
+{% endblock %}

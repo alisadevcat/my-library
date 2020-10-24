@@ -1,0 +1,11 @@
+# index:
+#    path: /
+#    controller: App\Controller\BookController::index
+
+# booknumber:
+#     path: /
+#     controller: App\Controller\BookController::index
+
+# index:
+#    path: /edit/{id}
+#    controller: App\Controller\BookController::edit
