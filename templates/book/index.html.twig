@@ -14,7 +14,6 @@
     <th class="bordered">Автор</th>
     <th class="bordered">Год</th>
     <th class="bordered">Редактировать</th>
-    <th class="bordered">Удалить</th>
     </tr>
 
     {% for book in books %}
@@ -26,9 +25,6 @@
 
     <td class="bordered">
      <a href="{{ path('book_edit', {id: book.id}) }}">Редактировать</a>
-     </td>
-     <td class="bordered">
-     <a href="{{ path('book_delete', {id: book.id}) }}">Удалить</a>
      </td>
      </tr>
 
