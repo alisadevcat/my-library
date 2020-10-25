@@ -17,21 +17,18 @@ class BookController extends AbstractController
     /**
      * @Route("/", name="book")
      */
-    public function index(): type
+    public function index(): void
     {
-       
         $books =$this->getDoctrine()->getRepository(Book::class)->findAll();
-
-        return $this->render('book/index.html.twig', [
-            'books' => $books]);
+        return $this->render('book/index.html.twig', ['books' => $books]);
     }
 
     /**
      * @Route("/edit/{id}", name="book_edit")
      */
-    public function edit(int $id): type
+    public function edit($id): int
    {
-    $book = $this->getDoctrine()
+        $book = $this->getDoctrine()
             ->getRepository(Book::class)
             ->find($id);
 
@@ -40,7 +37,7 @@ class BookController extends AbstractController
                 'No product found for id '.$id
             );}
 
-            return $this->render('book/single.html.twig', ['book' => $book]);
+        return $this->render('book/single.html.twig', ['book' => $book]);
    }
 
     /**
@@ -49,63 +46,54 @@ class BookController extends AbstractController
 
     public function update(Request $request, $id):Response
     {
-     
-    // if ($request->isMethod('POST')) {
-    //     $id = $request->request->get('id');
-    // }
 
-    $author = $request->request->get('author');
-    $title = $request->request->get('title');
-    $year = $request->request->get('year');
- 
-     $entityManager = $this->getDoctrine()->getManager();
-     $book = $entityManager->getRepository(Book::class)->find($id);
- 
-     $book->setTitle($title);
-     $book->setAuthor($author);
-     $book->setYear($year);
- 
-     $entityManager->persist($book);
- 
-     $entityManager->flush();
+        $author = $request->request->get('author');
+        $title = $request->request->get('title');
+        $year = $request->request->get('year');
+    
+        $entityManager = $this->getDoctrine()->getManager();
+        $book = $entityManager->getRepository(Book::class)->find($id);
+    
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setYear($year);
+    
+        $entityManager->persist($book);
+    
+        $entityManager->flush();
 
-     return new Response(json_encode(['response' => 'Отредактировано']));
+        return new Response(json_encode(['response' => 'Отредактировано']));
     }
  
-
     /**
      * @Route("/add", name="book_add")
      */
     public function add(): type
     {
-
-    return $this->render('book/add.html.twig');
+        return $this->render('book/add.html.twig');
     }
 
    /**
-     * @Route("/addForm", methods={"GET","POST"})
-     */
+    * @Route("/addForm", methods={"GET","POST"})
+    */
 
     public function addForm(Request $request):Response
     {
-    
-    $author = $request->request->get('author');
-    $title = $request->request->get('title');
-    $year = $request->request->get('year');
+        $author = $request->request->get('author');
+        $title = $request->request->get('title');
+        $year = $request->request->get('year');
 
-    $book = new Book();
+        $book = new Book();
 
-    $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->getDoctrine()->getManager();
 
-     $book->setTitle($title);
-     $book->setAuthor($author);
-     $book->setYear($year);
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setYear($year);
 
-    $entityManager->persist($book);
-
-    $entityManager->flush();
-
-    return new Response(json_encode(['result' => 'Добавлено']));
+        $entityManager->persist($book);
+        $entityManager->flush();
+        return new Response(json_encode(['result' => 'Добавлено']));
 }
 
 }
