@@ -17,7 +17,7 @@ class BookController extends AbstractController
     /**
      * @Route("/", name="book")
      */
-    public function index(): void
+    public function index(): object
     {
         $books =$this->getDoctrine()->getRepository(Book::class)->findAll();
         return $this->render('book/index.html.twig', ['books' => $books]);
@@ -26,7 +26,7 @@ class BookController extends AbstractController
     /**
      * @Route("/edit/{id}", name="book_edit")
      */
-    public function edit(int $id): int
+    public function edit(int $id): object
    {
         $book = $this->getDoctrine()->getRepository(Book::class)->find($id);
 
@@ -64,7 +64,7 @@ class BookController extends AbstractController
     /**
      * @Route("/add", name="book_add")
      */
-    public function add(): type
+    public function add(): Response
     {
         return $this->render('book/add.html.twig');
     }
