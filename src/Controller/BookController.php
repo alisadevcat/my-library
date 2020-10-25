@@ -26,11 +26,9 @@ class BookController extends AbstractController
     /**
      * @Route("/edit/{id}", name="book_edit")
      */
-    public function edit($id): int
+    public function edit(int $id): int
    {
-        $book = $this->getDoctrine()
-            ->getRepository(Book::class)
-            ->find($id);
+        $book = $this->getDoctrine()->getRepository(Book::class)->find($id);
 
         if (!$book) {
             throw $this->createNotFoundException(
@@ -41,12 +39,10 @@ class BookController extends AbstractController
    }
 
     /**
-    * @Route("/update/{id}", name="book_update", methods={"GET","POST"})
-    */
-
-    public function update(Request $request, $id):Response
+     * @Route("/update/{id}", name="book_update", methods={"GET","POST"})
+     */
+    public function update(Request $request, int $id):Response
     {
-
         $author = $request->request->get('author');
         $title = $request->request->get('title');
         $year = $request->request->get('year');
