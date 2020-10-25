@@ -70,37 +70,39 @@ class BookController extends AbstractController
             return $this->render('book/single.html.twig', ['book' => $book]);
    }
 
-   /**
-    * @Route("/update", name="book_update", methods={"GET", "POST"})
+    /**
+    * @Route("/update/{id}", name="book_update", methods={"GET","POST"})
     */
-   public function update(Request $request):Response
-   {
-    $params = $request->request->all();
 
-    $id = $request->request->get('id');
+    public function update(Request $request, $id):Response
+    {
+     $params = $request->request->all();
+ 
+    if ($request->isMethod('POST')) {
+        $id = $request->request->get('id');
+    }
 
-     $author = $request->request->get('author');
+    $author = $request->request->get('author');
     $title = $request->request->get('title');
     $year = $request->request->get('year');
+ 
+     $entityManager = $this->getDoctrine()->getManager();
+     $book = $entityManager->getRepository(Book::class)->find($id);
+ 
+     $book->setTitle($title);
+     $book->setAuthor($author);
+     $book->setYear($year);
+ 
+     $entityManager->persist($book);
+ 
+     $entityManager->flush();
 
-    $entityManager = $this->getDoctrine()->getManager();
-    $book = $entityManager->getRepository(Book::class)->find($id);
-
-    $book->setTitle($title);
-    $book->setAuthor($author);
-    $book->setYear($year);
-
-    $entityManager->persist($book);
-
-    $entityManager->flush();
-
-    return new Response(json_encode(array('result' => 'success')));
-    // return $this->redirectToRoute('book_show', ;
-    // ])
-
-   }
-
-
+     return new Response(json_encode(array('response' => 'success')));
+     // return $this->redirectToRoute('book_show', ;
+     // ])
+ 
+    }
+ 
     /**
     * @Route("/delete/{id}", name="book_delete")
     */
@@ -111,29 +113,31 @@ public function delete($id){
     $book = $entityManager->getRepository(Book::class)->find($id);
     $entityManager->remove($book);
     $entityManager->flush();
-
 }
 
     /**
      * @Route("/add", name="book_add")
      */
-public function add(){
+    public function add(){
     
     $entityManager = $this->getDoctrine()->getManager();
 
-    //     $book = new Book();
-    //     $book->setTitle('The old man and the sea');
-    //     $book->setYear(1999);
-    //     $book->setAuthor('Ernest Hemingway');
-    $entityManager = $this->getDoctrine()->getManager();
+    $book = new Book();
 
-    $book= $entityManager->getRepository(Book::class)->find($id);
-    
-    return $this->redirectToRoute('product_show', [
-        'id' => $book->getId()
+    $form = $this->createFormBuilder($book)
+            ->add('task', TextType::class)
+            ->add('author',TextType::class)
+            ->add('year', IntegerType::class)
+            ->add('save', SubmitType::class)
+            ->getForm();
+
+    return $this->render('book/addd.html.twig', [
+        'form' => $form->createView(),
     ]);
 
 }
+
+
 // /**
 //      * @Route("/form", name="book_form")
 //      */

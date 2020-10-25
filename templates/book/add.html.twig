@@ -1,10 +1,18 @@
+{% extends 'base.html.twig' %}
 
-<form action ="" method="post">
+{% block title %}Редактировать страницу{% endblock %}
 
-<input type="text"name="title" >
-<input type="text" name="year" >
-<input type="text" name="author">
+{% block body %}
+<div class="container">
+
+<form action ="/add" method="post">
+
+<input type="text"name="title" placeholder="Название">
+<input type="text" name="year" placeholder="Год">
+<input type="text" name="author"placeholder="Автор">
 
 <input type="submit" value="Добавить">
 
 </form>
+</div>
+{% endblock %}

@@ -7,15 +7,16 @@
 
 <div class="container">
 
-<form action ="{{ path('book_update') }}" method="post" class="editForm">
+<form action ="{{ path('book_update', {id: book.id})}}" 
+method="post" name="editForm">
 
-<input type="text"name="id" value="{{book.id}}">
+<input type="number" name="id" value="{{book.id}}">
 <input type="text"name="title" value="{{book.title}}">
-<input type="text" name="year"value="{{book.year}}" >
-<input type="text" name="author"value="{{book.author}}" >
+<input type="text" name="year"value="{{book.year}}">
+<input type="text" name="author"value="{{book.author}}">
+<div id="success"></div>
+<input type="submit" value="Сохранить" id="btn_save">
 
-<input type="submit" value="Сохранить" class="btn_save">
-<div class="messages"></div>
 </form>
 </div>
 {% endblock %}

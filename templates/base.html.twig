@@ -22,8 +22,9 @@
 
         {% block javascripts %}
         {# the JS file lives at "public/bundles/acme/js/loader.js" #}
-            <script src="{{ asset('/js/ajax.js') }}"></script>
-            <script src="{{ asset('/js/jquery.min.js') }}"></script>
+           
+            <script src="{{ asset('/bundles/acme/js/jquery.min.js') }}"></script>
+             <script src="{{ asset('/bundles/acme/js/ajax.js') }}"></script>
         {% endblock %}
     </body>
 </html>

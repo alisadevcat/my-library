@@ -1,0 +1,20 @@
+
+{{ form_start(form, {'method': 'POST'}) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.title) }}
+        </div>
+        <div class="col" id="some-custom-id">
+            {{ form_row(form.year) }}
+        </div>
+         <div class="col" id="some-custom-id">
+            {{ form_row(form.author) }}
+        </div>
+
+         {{ form_row(form.save, { 'label': 'Добавить' }) }}
+    </div>
+{{ form_end(form) }}
