@@ -11,10 +11,12 @@ git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 `composer install`. 
 
 ### Шаг 3 - База данных
+В файле-образце env. прописать данные подключения к бд.
 
+Выполнить команду
 `php bin/console doctrine:database:import dump.sql`
 
-В файле-образце env. прописать данные подключения к бд.
+
 ### Шаг 4 - очистить кэш
 
 `php app/console cache:clear --env=prod --no-debug`
