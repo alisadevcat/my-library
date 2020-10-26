@@ -10,7 +10,7 @@ git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 Открываем терминал в директории проекта symfony, запускаем команду:
 `composer install`. 
 
-### Шаг 3 - Выполнение миграции базы данных
+### Шаг 3 - База данных
 
 `php bin/console doctrine:database:import dump.sql`
 
