@@ -20,6 +20,3 @@ git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 ### Шаг 4 - очистить кэш
 
 `php app/console cache:clear --env=prod --no-debug`
-
-### Шаг 5 - проверить недостающие компоненты php система скажет чего не хватает и попросить поставить то что нужно
-`php app/check.php`
