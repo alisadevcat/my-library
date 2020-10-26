@@ -12,7 +12,7 @@ composer install.
 
 ### Шаг 3 - Настраиваем базу данных
 
-php app/console doctrine:schema:validate
+`php app/console doctrine:schema:validate`
 
 Результат команды обычно такой:
 
@@ -27,10 +27,10 @@ Output
 Создать базу данных можно как из командной строки, так и из phpmyadmin
 Откроется phpmyadmin. Как в нём создать базу данных.
 
-php bin/console doctrine:database:drop -- force
-php bin/console doctrine:database:create
-php bin/console doctrine:schema:update -- force
-php bin/console doctrine:schema:validate
+`php bin/console doctrine:database:drop -- force`<br/>
+`php bin/console doctrine:database:create`<br/>
+`php bin/console doctrine:schema:update -- force`<br/>
+`php bin/console doctrine:schema:validate`<br/>
 
 
 ### Шаг 4 - очистить кэш
