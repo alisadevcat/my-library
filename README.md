@@ -14,7 +14,7 @@ git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 В файле-образце env. прописать данные подключения к бд.
 
 Выполнить команду
-`php bin/console doctrine:database:import dump.sql`
+`php bin/console doctrine:database:import library.sql`
 
 
 ### Шаг 4 - очистить кэш
