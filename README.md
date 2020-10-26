@@ -8,7 +8,7 @@ git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 Чтобы развернуть все нужные компоненты нужен composer. Качаем c [https://getcomposer.org/], ставим.
 
 Открываем терминал в директории проекта symfony, запускаем команду:
-composer install. 
+`composer install`. 
 
 ### Шаг 3 - Настраиваем базу данных
 
@@ -35,7 +35,7 @@ Output
 
 ### Шаг 4 - очистить кэш
 
-php app/console cache:clear --env=prod --no-debug 
+`php app/console cache:clear --env=prod --no-debug`
 
 ### Шаг 5 - проверить недостающие компоненты php система скажет чего не хватает и попросить поставить то что нужно
-php app/check.php
+`php app/check.php`
