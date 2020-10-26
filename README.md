@@ -14,7 +14,7 @@ git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 
 `php bin/console doctrine:database:import dump.sql`
 
-В файле env. прописать данные подключения к бд.
+В файле-образце env. прописать данные подключения к бд.
 ### Шаг 4 - очистить кэш
 
 `php app/console cache:clear --env=prod --no-debug`
