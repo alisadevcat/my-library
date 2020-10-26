@@ -5,7 +5,7 @@
 git clone https://github.com/AlisaRaevskaya/MyLibrary.git
 
 ### Шаг 2 -установка зависимостей проекта
-Чтобы развернуть все нужные компоненты нужен composer. Качаем c [https://getcomposer.org/], ставим. Теперь из Git Bash терминала (да и из обычного скучного виндовсоского) можно запускать composer.
+Чтобы развернуть все нужные компоненты нужен composer. Качаем c [https://getcomposer.org/], ставим.
 
 Открываем терминал в директории проекта symfony, запускаем команду:
 composer install. 
